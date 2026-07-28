@@ -54,11 +54,11 @@ function spawnFlowerBurst() {
     petal.textContent = FLOWER_EMOJIS[Math.floor(Math.random() * FLOWER_EMOJIS.length)];
 
     const startX = Math.random() * width;
-    const driftStart = (Math.random() - 0.5) * 80;
-    const driftEnd = (Math.random() - 0.5) * 260;
-    const size = 50 + Math.random() * 28;
-    const duration = 3 + Math.random() * 3;
-    const delay = Math.random() * 4;
+    const driftStart = (Math.random() - 0.5) * 200;
+    const driftEnd = (Math.random() - 1) * 260;
+    const size = 40 + Math.random() * 30;
+    const duration = 2 + Math.random() * 2;
+    const delay = Math.random() * 2;
     const spin = (Math.random() > 0.5 ? 1 : -1) * (360 + Math.random() * 360);
 
     petal.style.left = startX + "px";
