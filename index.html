@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selamat Ulang Tahun 🎂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= GERBANG KATA SANDI ================= -->
+<div id="gate" class="gate">
+  <div class="gate-glow"></div>
+  <div class="gate-card">
+    <p class="gate-eyebrow">sebuah kejutan kecil menantimu</p>
+    <h1 class="gate-title">Ada sesuatu untukmu</h1>
+    <p class="gate-sub">Masukkan kode rahasia untuk membukanya</p>
+    <form id="gateForm" autocomplete="off">
+      <input type="password" inputmode="numeric" id="gateInput" placeholder="• • • •" maxlength="8" aria-label="Kode rahasia">
+      <button type="submit">Buka</button>
+    </form>
+    <p id="gateError" class="gate-error" aria-live="polite">Kode salah, clue: tgl & bulan lahir kamu ✨</p>
+  </div>
+</div>
+<div class="flower-burst" id="flowerBurst" aria-hidden="true"></div>
+
+<!-- ================= HALAMAN UTAMA ================= -->
+<main id="site" class="site" hidden>
+
+  <div class="balloons" id="balloons" aria-hidden="true"></div>
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="eyebrow">29 Juli · hari paling istimewa tahun ini</p>
+    <h1 class="hero-title">Selamat Ulang Tahun,<br><span class="name" id="nameDisplay">Zahra Zettira</span></h1>
+    <p class="hero-sub">Satu hari dalam setahun yang dikhususkan untuk merayakan betapa bersyukurnya dunia punya kamu di dalamnya.</p>
+
+    <div class="countdown" id="countdown" aria-live="polite">
+      <div class="c-box"><span class="c-num" id="cDays">00</span><span class="c-label">hari</span></div>
+      <div class="c-box"><span class="c-num" id="cHours">00</span><span class="c-label">jam</span></div>
+      <div class="c-box"><span class="c-num" id="cMins">00</span><span class="c-label">menit</span></div>
+      <div class="c-box"><span class="c-num" id="cSecs">00</span><span class="c-label">detik</span></div>
+    </div>
+    <p class="countdown-caption" id="countdownCaption">menuju hari-H</p>
+
+    <a href="#cake" class="scroll-hint">Gulir ke bawah untuk tiup lilin ↓</a>
+  </section>
+
+  <!-- CAKE / TIUP LILIN -->
+  <section class="cake-section" id="cake">
+    <p class="eyebrow">buat permohonan</p>
+    <h2 class="section-title">Berdoa dulu, baru tiup lilinnya</h2>
+
+    <div class="cake-stage">
+      <div class="cake" id="cakeEl">
+        <div class="flames" id="flames">
+          <span class="flame"></span>
+          <span class="flame"></span>
+          <span class="flame"></span>
+          <span class="flame"></span>
+          <span class="flame"></span>
+        </div>
+        <div class="candles">
+          <span class="candle"></span>
+          <span class="candle"></span>
+          <span class="candle"></span>
+          <span class="candle"></span>
+          <span class="candle"></span>
+        </div>
+        <div class="cake-tier tier-top"><span class="drip"></span><span class="drip"></span><span class="drip"></span></div>
+        <div class="cake-tier tier-bottom"></div>
+        <div class="cake-plate"></div>
+      </div>
+    </div>
+
+    <button id="blowBtn" class="blow-btn">Tiup Lilin 🕯️</button>
+    <p class="blow-hint" id="blowHint">Klik tombolnya untuk meniup lilin</p>
+  </section>
+
+  <!-- PESAN -->
+  <section class="message-section" id="wishReveal">
+    <p class="eyebrow">untukmu</p>
+    <h2 class="section-title">Sepenggal pesan, sepenuh hati</h2>
+    <div class="letter">
+      <p class="letter-greeting">Untuk <span id="nameDisplay2">Nama Kamu</span>,</p>
+      <p>
+        Selamat ulang tahun yaa. 🥳
+
+        Akhirnya umur kamu nambah lagi. Selamat ya, sekarang resmi makin tua... 
+        walaupun masih tetep bocill juga sih. 😂
+      </p>
+      <p>
+        Semoga tahun ini membawa kamu lebih dekat ke semua hal yang kamu perjuangkan,
+        lebih banyak alasan untuk tersenyum, dan lebih banyak momen yang bikin kamu
+        bangga sudah sejauh ini. Kamu pantas mendapat semua kebaikan yang selama ini
+        kamu berikan ke orang lain.
+      <p>
+      <p>
+        Semoga di umur yang baru ini semua hal baik makin deket sama kamu. 
+        Apa pun yang lagi kamu usahain semoga dipermudah, yang lagi kamu tunggu semoga segera datang, 
+        dan yang bikin kamu capek pelan-pelan berubah jadi alasan buat senyum lagi.
+      </p>
+      <p>Selamat ulang tahun. Semoga semua permohonanmu tadi terkabul 🤍</p>
+      <p class="letter-signoff">— ,<br>Aku</p>
+    </div>
+  </section>
+
+  <!-- FOOTER / MUSIK -->
+  <footer class="site-footer">
+    <p>dibuat dengan sepenuh hati, khusus untukmu 🎈</p>
+  </footer>
+
+  <button id="musicToggle" class="music-toggle" aria-label="Putar musik latar">
+    <span class="music-icon">♪</span>
+  </button>
+  <audio id="bgMusic" loop preload="none">
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
