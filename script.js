@@ -27,8 +27,7 @@ const UNLOCK_MENIT = 0;
 let gateUnlocked = false; // true kalau waktu sudah sampai, form baru bisa dipakai
 
 function getUnlockTarget() {
-  const now = new Date();
-  return new Date(now.getFullYear(),ULTAH_TAHUN, ULTAH_BULAN - 1, ULTAH_TANGGAL, UNLOCK_JAM, UNLOCK_MENIT, 0);
+  return new Date(ULTAH_TAHUN, ULTAH_BULAN - 1, ULTAH_TANGGAL, UNLOCK_JAM, UNLOCK_MENIT, 0);
 }
 
 function startGateLock() {
