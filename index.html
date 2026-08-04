@@ -18,9 +18,18 @@
     <p class="gate-eyebrow">sebuah kejutan kecil menantimu</p>
     <h1 class="gate-title">Ada sesuatu untukmu</h1>
     <p class="gate-sub">Masukkan kode rahasia untuk membukanya</p>
+
+    <div class="gate-countdown" id="gateCountdown" aria-live="polite">
+      <div class="c-box"><span class="c-num" id="gcDays">00</span><span class="c-label">hari</span></div>
+      <div class="c-box"><span class="c-num" id="gcHours">00</span><span class="c-label">jam</span></div>
+      <div class="c-box"><span class="c-num" id="gcMins">00</span><span class="c-label">menit</span></div>
+      <div class="c-box"><span class="c-num" id="gcSecs">00</span><span class="c-label">detik</span></div>
+    </div>
+    <p class="gate-lock-caption" id="gateLockCaption">gerbang masih terkunci, tunggu hari-H ya ✨</p>
+
     <form id="gateForm" autocomplete="off">
-      <input type="password" inputmode="numeric" id="gateInput" placeholder="• • • •" maxlength="8" aria-label="Kode rahasia">
-      <button type="submit">Buka</button>
+      <input type="password" inputmode="numeric" id="gateInput" placeholder="• • • •" maxlength="8" aria-label="Kode rahasia" disabled>
+      <button type="submit" id="gateSubmitBtn" disabled>Buka</button>
     </form>
     <p id="gateError" class="gate-error" aria-live="polite">Kode salah, clue: tgl & bulan lahir kamu ✨</p>
   </div>

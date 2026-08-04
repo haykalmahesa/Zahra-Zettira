@@ -12,12 +12,74 @@ document.getElementById("nameDisplay2").textContent = NAMA;
 const gate = document.getElementById("gate");
 const gateForm = document.getElementById("gateForm");
 const gateInput = document.getElementById("gateInput");
+const gateSubmitBtn = document.getElementById("gateSubmitBtn");
 const gateError = document.getElementById("gateError");
 const gateCard = document.querySelector(".gate-card");
 const site = document.getElementById("site");
+const gateLockCaption = document.getElementById("gateLockCaption");
+
+// Jam berapa gerbang boleh mulai dibuka (default: tengah malam di tanggal ultah).
+// Ganti angka jam/menit di bawah kalau mau gerbang kebuka di jam tertentu, misal jam 00:00.
+const UNLOCK_JAM = 0;
+const UNLOCK_MENIT = 0;
+
+let gateUnlocked = false; // true kalau waktu sudah sampai, form baru bisa dipakai
+
+function getUnlockTarget() {
+  const now = new Date();
+  return new Date(now.getFullYear(), ULTAH_BULAN - 1, ULTAH_TANGGAL, UNLOCK_JAM, UNLOCK_MENIT, 0);
+}
+
+function startGateLock() {
+  const target = getUnlockTarget();
+  const dEl = document.getElementById("gcDays");
+  const hEl = document.getElementById("gcHours");
+  const mEl = document.getElementById("gcMins");
+  const sEl = document.getElementById("gcSecs");
+  let gateTimer = null;
+
+  function tick() {
+    const now = new Date().getTime();
+    const diff = target.getTime() - now;
+
+    if (diff <= 0) {
+      dEl.textContent = "00";
+      hEl.textContent = "00";
+      mEl.textContent = "00";
+      sEl.textContent = "00";
+      unlockGateForm();
+      clearInterval(gateTimer);
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const mins = Math.floor((diff / (1000 * 60)) % 60);
+    const secs = Math.floor((diff / 1000) % 60);
+
+    dEl.textContent = String(days).padStart(2, "0");
+    hEl.textContent = String(hours).padStart(2, "0");
+    mEl.textContent = String(mins).padStart(2, "0");
+    sEl.textContent = String(secs).padStart(2, "0");
+  }
+
+  tick();
+  gateTimer = setInterval(tick, 1000);
+}
+
+function unlockGateForm() {
+  gateUnlocked = true;
+  gateInput.disabled = false;
+  gateSubmitBtn.disabled = false;
+  gateLockCaption.textContent = "gerbang sudah bisa dibuka, masukkan kode rahasianya ✨";
+  gateLockCaption.classList.add("ready");
+}
+
+startGateLock();
 
 gateForm.addEventListener("submit", (e) => {
   e.preventDefault();
+  if (!gateUnlocked) return; // jaga-jaga: form tetap tidak diproses selama masih terkunci
   if (gateInput.value.trim() === PASSWORD) {
     gateCard.classList.add("unlocked");
     spawnFlowerBurst();
