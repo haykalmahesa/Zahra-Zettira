@@ -1,8 +1,9 @@
 // ================= KONFIGURASI =================
 const PASSWORD = "2907";          // kode rahasia pembuka website
 const NAMA = "Zahra Zettira";         // ganti dengan nama teman kamu
-const ULTAH_TANGGAL = 15;         // tanggal ulang tahun
-const ULTAH_BULAN = 3;            // bulan ulang tahun (1-12), 7 = Juli
+const ULTAH_TANGGAL = 29;         // tanggal ulang tahun
+const ULTAH_BULAN = 7;            // bulan ulang tahun (1-12), 7 = Juli
+const ULTAH_TAHUN = 2027;
 
 // Terapkan nama ke halaman
 document.getElementById("nameDisplay").textContent = NAMA;
@@ -27,7 +28,7 @@ let gateUnlocked = false; // true kalau waktu sudah sampai, form baru bisa dipak
 
 function getUnlockTarget() {
   const now = new Date();
-  return new Date(now.getFullYear(), ULTAH_BULAN - 1, ULTAH_TANGGAL, UNLOCK_JAM, UNLOCK_MENIT, 0);
+  return new Date(now.getFullYear(),ULTAH_TAHUN, ULTAH_BULAN - 1, ULTAH_TANGGAL, UNLOCK_JAM, UNLOCK_MENIT, 0);
 }
 
 function startGateLock() {
