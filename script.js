@@ -1,8 +1,8 @@
 // ================= KONFIGURASI =================
 const PASSWORD = "2907";          // kode rahasia pembuka website
 const NAMA = "Zahra Zettira";         // ganti dengan nama teman kamu
-const ULTAH_TANGGAL = 29;         // tanggal ulang tahun
-const ULTAH_BULAN = 7;            // bulan ulang tahun (1-12), 7 = Juli
+const ULTAH_TANGGAL = 15;         // tanggal ulang tahun
+const ULTAH_BULAN = 3;            // bulan ulang tahun (1-12), 7 = Juli
 
 // Terapkan nama ke halaman
 document.getElementById("nameDisplay").textContent = NAMA;
